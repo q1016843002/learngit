@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>进度条</title>
+	<style>
+	.loading{
+		position:absolute;
+		width:500px;
+		height:50px;
+		background: #6699CC;
+		left:32%;
+		top:45%;
+		-webkit-animation:loading 5s;
+		border:1px solid black;
+	}
+	.word{
+		position:absolute;
+		left:34%;
+		top:47%;
+		z-index:9999;
+		font-weight:bold;
+	}
+	@-webkit-keyframes loading{
+		from{width:0px;}
+		to{width:500px;}
+	}
+	</style>
+</head>
+<body>
+	<div class="word">加载至：<i>100</i>&nbsp;%</div>
+	<div class="loading"></div>
+	<script type="text/javascript">
+		var num=document.getElementsByTagName("i")[0];
+		var index=0;
+		var timer=setInterval(function(){
+			num.innerHTML=index+1;
+			index++;
+		},50)
+		var stop=setTimeout(function(){
+			clearInterval(timer);
+		},5000)
+	</script>
+</body>
+</html>
